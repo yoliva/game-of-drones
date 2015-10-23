@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfDrones.Data", "GameOfDrones.Data\GameOfDrones.Data.csproj", "{A2F281E8-EFA7-4A8B-A934-7746556871C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfDrones.Domain", "GameOfDrones.Domain\GameOfDrones.Domain.csproj", "{096C8087-40BE-4F02-97FA-9E3844206024}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfDrones.API", "GameOfDrones.API\GameOfDrones.API.csproj", "{7E236FC1-740F-4535-A43A-BEA29010ED3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfDrones.Tests", "GameOfDrones.Tests\GameOfDrones.Tests.csproj", "{5AD76A2C-F9ED-4892-91FD-8B3159CD1220}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2F281E8-EFA7-4A8B-A934-7746556871C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F281E8-EFA7-4A8B-A934-7746556871C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F281E8-EFA7-4A8B-A934-7746556871C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F281E8-EFA7-4A8B-A934-7746556871C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{096C8087-40BE-4F02-97FA-9E3844206024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096C8087-40BE-4F02-97FA-9E3844206024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096C8087-40BE-4F02-97FA-9E3844206024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096C8087-40BE-4F02-97FA-9E3844206024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E236FC1-740F-4535-A43A-BEA29010ED3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E236FC1-740F-4535-A43A-BEA29010ED3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E236FC1-740F-4535-A43A-BEA29010ED3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E236FC1-740F-4535-A43A-BEA29010ED3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AD76A2C-F9ED-4892-91FD-8B3159CD1220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD76A2C-F9ED-4892-91FD-8B3159CD1220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD76A2C-F9ED-4892-91FD-8B3159CD1220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD76A2C-F9ED-4892-91FD-8B3159CD1220}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
