@@ -1,5 +1,7 @@
-using Microsoft.Practices.Unity;
 using System.Web.Http;
+using GameOfDrones.Data.Repositories;
+using GameOfDrones.Domain.Repositories;
+using Microsoft.Practices.Unity;
 using Unity.WebApi;
 
 namespace GameOfDrones.API
@@ -8,13 +10,13 @@ namespace GameOfDrones.API
     {
         public static void RegisterComponents()
         {
-			var container = new UnityContainer();
-            
+            var container = new UnityContainer();
+
             // register all your components with the container here
             // it is NOT necessary to register your controllers
-            
-            // e.g. container.RegisterType<ITestService, TestService>();
-            
+
+            container.RegisterType<IGameOfDronesRepository, GameOfDronesRepository >();
+
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }
