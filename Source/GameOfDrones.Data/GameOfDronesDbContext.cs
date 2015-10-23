@@ -13,15 +13,15 @@ namespace GameOfDrones.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Match>()
-                .HasOptional(u => u.Player1Stats)
-                .WithMany()
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Match>()
+            //    .HasOptional(u => u.Player1Stats)
+            //    .WithMany()
+            //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Match>()
-                .HasOptional(u => u.Player2Stats)
-                .WithMany()
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Match>()
+            //    .HasOptional(u => u.Player2Stats)
+            //    .WithMany()
+            //    .WillCascadeOnDelete(false);
         }
 
         public IDbSet<Player> Players { get; set; }

@@ -9,7 +9,14 @@ namespace GameOfDrones.Domain.Entities
         [Required]
         public Rule Rule { get; set; }
         public int RuleId { get; set; }
-        public PlayerStats Player1Stats { get; set; }
-        public PlayerStats Player2Stats { get; set; }
+        public ICollection<PlayerStats> PlayersStatses { get; set; }
+        public Player Winner { get; set; }
+
+        public void AddPlayerStats(PlayerStats playerStats)
+        {
+            if(PlayersStatses == null)
+                PlayersStatses = new LinkedList<PlayerStats>();
+            PlayersStatses.Add(playerStats);
+        }
     }
 }

@@ -9,13 +9,15 @@ namespace GameOfDrones.Domain.Entities
         public int WinnerRounds { get; set; }
         public int LoserRounds { get; set; }
         public int DrawRounds { get; set; }
+        public Match Match { get; set; }
         public MatchResult MatchResult { get; set; }
 
-        public void Update(int w, int l, int d)
+        public void Update(int w, int l, int d, MatchResult matchResult)
         {
             WinnerRounds = w;
             LoserRounds = l;
             DrawRounds = d;
+            MatchResult = matchResult;
         }
     }
 }
