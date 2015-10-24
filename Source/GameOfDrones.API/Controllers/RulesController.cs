@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Http;
+using GameOfDrones.API.Models;
+using GameOfDrones.Domain.Entities;
 using GameOfDrones.Domain.Repositories;
 
 namespace GameOfDrones.API.Controllers
@@ -40,6 +42,22 @@ namespace GameOfDrones.API.Controllers
         public IHttpActionResult GetCurrentRule()
         {
             return Ok(_gameOfDronesRepository.GetAllRules().FirstOrDefault(x => x.IsCurrent));
+        }
+
+        [Route("create")]
+        public IHttpActionResult PutCreateRule([FromBody]RuleViewModel data)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var rule = new Rule()
+            {
+                Name = data.Name,
+                RuleDefinition = data.RuleDefinition
+            };
+            _gameOfDronesRepository.AddRule(rule);
+            _gameOfDronesRepository.SaveChanges();
+            return Ok(rule);
         }
     }
 }
