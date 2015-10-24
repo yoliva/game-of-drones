@@ -1,54 +1,51 @@
 ﻿angular.module('app')
-    .factory('matchService', [
+    .factory('matchDataService', [
         '$http', 'config', function($http, config, $q) {
 
-        var eventApiUrl = config.apiUrl;
-        var endPoint = "matches/";
-        var url = eventApiUrl + endPoint;
+            var eventApiUrl = config.apiUrl;
+            var endPoint = "matches/";
+            var url = eventApiUrl + endPoint;
 
-        var service = {};
+            var service = {};
 
+            service.getAll = function() {
+                return $http.get(url + 'getAll');
+            };
 
-        $scope.match = {};
-        service.getMatch = function(id) {
+            service.getById = function(id) {
+                return $http.get(url + 'match/' + id);
+            };
 
-            var deferred = $q.defer();
+            service.create = function (match) {
+                return $http.post(url + 'create', match);
+            };
 
-            $http.get(url + id)
-                .then(function(result) {
-                angular.copy(result.data, match);
-                    deferred.resolve();
-                }, function() {
-                    //ERROR
-                    deferred.reject();
-                });
-
-            return deferred.promise();
-        };
-
-        service.getById = function(id) {
-            return $http.get(url + id);
-        };
-
-        service.update = function(event) {
-            var request = {};
-            request.event = event;
-            return $http.put(url + event.id, request);
-        };
-
-        service.create = function(event) {
-            var request = {};
-            request.event = event;
-            return $http.post(url, request);
-        };
-
-        service.destroy = function(id) {
-            return $http.delete(url + id);
-        };
-
-        service.getFeatured = function() {
-            return $http.get(url + 'featured');
-        };
         return service;
     }
-]);
+    ]);
+
+angular.module('app')
+    .factory('ruleDataService', [
+        '$http', 'config', function($http, config, $q) {
+
+            var eventApiUrl = config.apiUrl;
+            var endPoint = "players/";
+            var url = eventApiUrl + endPoint;
+
+            var service = {};
+
+
+        }
+    ]);
+
+angular.module('app')
+    .factory('playerDataService', [
+        '$http', 'config', function ($http, config, $q) {
+
+            var eventApiUrl = config.apiUrl;
+            var endPoint = "rules/";
+            var url = eventApiUrl + endPoint;
+
+            var service = {};
+        }
+    ]);
