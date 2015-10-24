@@ -22,6 +22,7 @@ namespace GameOfDrones.API
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
+                "~/Content/sb-admin-2.css",
                 "~/Content/font-awesome.min.css"));
         }
     }

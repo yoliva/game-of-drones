@@ -39,6 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.Unity">
       <HintPath>..\..\Libraries\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
@@ -157,11 +165,19 @@
     <Compile Include="Models\EvalRoundViewModel.cs" />
     <Compile Include="Models\MatchResultStats.cs" />
     <Compile Include="Models\PlayerStatsViewModel.cs" />
+    <Compile Include="Models\RuleViewModel.cs" />
     <Compile Include="Models\UpdateMatchStatsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\js\app.js" />
+    <Content Include="app\js\gameOfDrones - Copy\configurationController.js" />
+    <Content Include="app\js\gameOfDrones - Copy\directives.js" />
+    <Content Include="app\js\gameOfDrones - Copy\filters.js" />
+    <Content Include="app\js\gameOfDrones - Copy\services.js" />
+    <Content Include="app\js\gameOfDrones - Copy\startGameController.js" />
+    <Content Include="app\js\gameOfDrones - Copy\statsController.js" />
+    <Content Include="app\js\gameOfDrones\gameController.js" />
     <Content Include="app\js\gameOfDrones\configurationController.js" />
     <Content Include="app\js\gameOfDrones\directives.js" />
     <Content Include="app\js\gameOfDrones\filters.js" />
@@ -180,6 +196,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\events.png" />
     <Content Include="Content\images\image.png" />
+    <Content Include="Content\sb-admin-2.css" />
     <Content Include="Content\signin.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />

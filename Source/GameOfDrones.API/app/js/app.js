@@ -25,7 +25,7 @@
         });
     })
     .constant("config", {
-        apiUrl: 'http://localhost:6092/api/v1/'
+        apiUrl: 'http://localhost:31349/api/v1/'
     });
 
 angular.module('gameOfDrones', []);
