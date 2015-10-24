@@ -1,6 +1,6 @@
 ﻿angular.module('app')
     .factory('matchDataService', [
-        '$http', 'config', function($http, config, $q) {
+        '$http', 'config', function($http, config) {
 
             var eventApiUrl = config.apiUrl;
             var endPoint = "matches/";
@@ -39,7 +39,7 @@
 
 angular.module('app')
     .factory('ruleDataService', [
-        '$http', 'config', function($http, config, $q) {
+        '$http', 'config', function($http, config) {
 
             var eventApiUrl = config.apiUrl;
             var endPoint = "rules/";
@@ -49,6 +49,14 @@ angular.module('app')
 
             service.getAll = function() {
                 return $http.get(url + 'getAll');
+            };
+
+            service.updateCurrent = function (id) {
+                return $http.put(url +'updateDefault/' + id);
+            };
+
+            service.create = function (data) {
+                return $http.post(url + 'create/',data);
             };
 
             return service;

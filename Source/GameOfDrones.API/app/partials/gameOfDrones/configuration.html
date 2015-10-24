@@ -1,1 +1,73 @@
-﻿<a href="#/home/start" class="btn btn-default"><i class="fa fa-arrow-left"></i> Go Back</a>
+﻿<div class="form-horizontal">
+    <div class="row">
+        <div class="col-md-8 col-lg-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <i class="fa fa-cogs"></i> Manage Rules
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-target="#setRule" data-toggle="tab"><i class="fa fa-check"></i> Set Current Rule</a>
+                        </li>
+                        <li>
+                            <a data-target="#addRule" data-toggle="tab"><i class="fa fa-plus"></i> Add Rule</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="setRule">
+                            <div class="row" style="padding-top: 30px">
+                                <div class="col-sm-10">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Select Rule:</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" ng-model="currentRule" ng-options="val.value as val.text for val in availableRules"></select>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a class="btn btn-success" ng-click="setCurrentRule()"><i class="fa fa-check"></i></a>
+                                </div>
+                            </div>
+                            </div>
+                        <div class="tab-pane fade" id="addRule">
+                            <form name="addRuleForm" class="form-horizontal" role="form" novalidate="">
+                                <div class="row" style="padding-top: 30px">
+                                    <div class="col-md-10">
+                                        <div class="form-group" ng-class="{'has-error': addRuleForm.name.$error.required}">
+                                            <label class="col-sm-2 control-label">Name:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" ng-model="newRule.name" name="name" placeholder="Rule Name" required />
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-class="{'has-error': addRuleForm.ruleDefinition.$error.required}">
+                                            <label class="col-sm-2 control-label">Definition:</label>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control" rows="10" ng-model="newRule.ruleDefinition" name="ruleDefinition" placeholder="Xml definition" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-10 col-sm-offset-2">
+                                                <button class="btn btn-success" data-ng-disabled="addRuleForm.$invalid" ng-click="createRule()"><i class="fa fa-save"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+                <div class="panel-footer">
+                    <a href="#/home/start" class="btn btn-primary pull-right"><i class="fa fa-reply"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
