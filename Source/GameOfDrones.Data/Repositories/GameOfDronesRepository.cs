@@ -133,6 +133,11 @@ namespace GameOfDrones.Data.Repositories
             return _ctx.Rules.Find(ruleId);
         }
 
+        public void AddRule(Rule rule)
+        {
+            _ctx.Rules.Add(rule);
+        }
+
         public SaveChangesResponse SaveChanges()
         {
             try

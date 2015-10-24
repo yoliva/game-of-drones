@@ -29,6 +29,8 @@ namespace GameOfDrones.Domain.Repositories
         Rule GetCurrentRule();
         IQueryable<Rule> GetAllRules();
         Rule GetRuleById(int ruleId);
+        void AddRule(Rule rule);
+
 
         //Db Save Changes
         SaveChangesResponse SaveChanges();
