@@ -105,7 +105,15 @@ namespace GameOfDrones.API.Controllers
         [Route("match/{matchId}")]
         public IHttpActionResult GetMatch(int matchId)
         {
-            return Ok(_gameOfDronesRepository.GetMatchById(matchId));
+            var match = _gameOfDronesRepository.GetMatchById(matchId);
+            return Ok(new
+            {
+                match.Id,
+                AvailableMoves = _gameOfDronesRepository.GetValidMoves(match.RuleId),
+                match.PlayersStatses,
+                match.Winner,
+                match.RuleId
+            });
         }
         [Route("evalRound")]
         public IHttpActionResult PostEvalRound([FromBody]EvalRoundViewModel data)
