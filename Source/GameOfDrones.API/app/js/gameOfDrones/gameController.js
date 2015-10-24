@@ -44,7 +44,7 @@
                     $scope.gameLogicHandler.playerOnTurn = $scope.gameLogicHandler.player1Stats.name;
                 });
 
-            $scope.isPlayer1Turn = function isPlayer1Turn () {
+            $scope.isPlayer1Turn = function () {
                 return $scope.gameLogicHandler.player1Stats.name == $scope.gameLogicHandler.playerOnTurn;
             };
 
@@ -53,7 +53,7 @@
             };
 
             $scope.player1MakeMove = function () {
-                if ($scope.gameLogicHandler.player1Move == '') {
+                if ($scope.gameLogicHandler.player1Move == '' || $scope.gameLogicHandler.player2Move == undefined) {
                     swal("Info!", "You must choose a valid move from the list.", "info");
                     return;
                 }
@@ -61,8 +61,8 @@
             }
 
             $scope.player2MakeMove = function() {
-
-                if ($scope.gameLogicHandler.player2Move == '') {
+                console.log();
+                if ($scope.gameLogicHandler.player2Move == '' || $scope.gameLogicHandler.player2Move == undefined) {
                     swal("Info!", "You must choose a valid move from the list.", "info");
                     return;
                 }
