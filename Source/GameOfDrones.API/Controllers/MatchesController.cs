@@ -90,7 +90,10 @@ namespace GameOfDrones.API.Controllers
                 return NotFound();
 
             var winner = match.Winner;
-            return Ok(winner);
+            return Ok(new
+            {
+                winner
+            });
         }
 
         [Route("getAll")]
@@ -99,17 +102,22 @@ namespace GameOfDrones.API.Controllers
             return Ok(_gameOfDronesRepository.GetAllMatches());
         }
 
-        [Route("{matchId}")]
+        [Route("match/{matchId}")]
         public IHttpActionResult GetMatch(int matchId)
         {
             return Ok(_gameOfDronesRepository.GetMatchById(matchId));
         }
         [Route("evalRound")]
-        public IHttpActionResult GetRoundResult([FromBody]EvalRoundViewModel data)
+        public IHttpActionResult PostEvalRound([FromBody]EvalRoundViewModel data)
         {
+            //if according to the match rules move(A) kills move(B) and move(B) kills move(A), is returned the first in the xml definition
             if(!ModelState.IsValid)
                 return BadRequest();
-            return Ok(_gameOfDronesRepository.EvalRound(data.RuleId, data.Player1Move, data.Player2Move));
+            var result = _gameOfDronesRepository.EvalRound(data.RuleId, data.Player1Move, data.Player2Move).ToString();
+            return Ok(new
+            {
+                result
+            });
         }
     }
 }
