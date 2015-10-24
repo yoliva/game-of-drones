@@ -45,7 +45,7 @@ namespace GameOfDrones.API.Controllers
         }
 
         [Route("create")]
-        public IHttpActionResult PutCreateRule([FromBody]RuleViewModel data)
+        public IHttpActionResult PostCreateRule([FromBody]RuleViewModel data)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
