@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using GameOfDrones.Domain.Common;
 using GameOfDrones.Domain.Entities;
 using GameOfDrones.Domain.Enums;
@@ -34,5 +35,6 @@ namespace GameOfDrones.Domain.Repositories
 
         //Db Save Changes
         SaveChangesResponse SaveChanges();
+        ICollection<string> GetValidMoves(int ruleId);
     }
 }

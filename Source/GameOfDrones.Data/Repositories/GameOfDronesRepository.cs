@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Xml;
@@ -131,6 +132,18 @@ namespace GameOfDrones.Data.Repositories
         public Rule GetRuleById(int ruleId)
         {
             return _ctx.Rules.Find(ruleId);
+        }
+        public ICollection<string> GetValidMoves(int ruleId)
+        {
+            var rule = GetRuleById(ruleId);
+            var moves = new SortedSet<string>();
+            var doc = new XmlDocument();
+            doc.LoadXml(rule.RuleDefinition);
+            foreach (XmlNode child in doc.FirstChild)
+            {
+                moves.Add(child.Name);
+            }
+            return moves.ToArray();
         }
 
         public void AddRule(Rule rule)
