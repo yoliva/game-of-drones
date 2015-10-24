@@ -13,7 +13,6 @@
 
             matchDataService.create(newMatch)
                 .success(function(data) {
-                    console.log(data);
                     $location.path('/game/'+data.id);
                 });
         }

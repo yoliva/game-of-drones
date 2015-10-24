@@ -53,15 +53,19 @@
             };
 
             $scope.player1MakeMove = function () {
-                if ($scope.gameLogicHandler.player1Move == '')
+                if ($scope.gameLogicHandler.player1Move == '') {
+                    swal("Info!", "You must choose a valid move from the list.", "info");
                     return;
+                }
                 $scope.gameLogicHandler.playerOnTurn = $scope.gameLogicHandler.player2Stats.name;
             }
 
             $scope.player2MakeMove = function() {
 
-                if ($scope.gameLogicHandler.player2Move == '')
+                if ($scope.gameLogicHandler.player2Move == '') {
+                    swal("Info!", "You must choose a valid move from the list.", "info");
                     return;
+                }
 
                 //call to the service and process the response
                 var roundMoves = {
