@@ -1,1 +1,88 @@
-﻿
+﻿<div class="form-horizontal">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary col-md-offset-1">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-trophy fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{{gameLogicHandler.player1Stats.name + ' (W-L)'+ + ' vs ' + gameLogicHandler.player2Stats.name+' (W-L)'}}</div>
+                            <div> some text</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div>
+                        <h3 class="text-center">{{gameLogicHandler.playerOnTurn}}'s turn</h3>
+                        <hr class="col-md-11" />
+                    </div>
+                    <div ng-show="isPlayer1Turn()">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Select Move:</label>
+                            <div class="col-sm-6">
+                                <select class="col-md-3 form-control" ng-model="gameLogicHandler.player1Move" ng-options="val.text as val.value for val in gameLogicHandler.availableMoves"></select>
+                            </div>
+                            <button class="btn btn-success" ng-click="player1MakeMove()">Play</button>
+                        </div>
+                    </div>
+                    <div ng-show="isPlayer2Turn()">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Select Move:</label>
+                            <div class="col-sm-6">
+                                <select class="col-md-3 form-control" ng-model="gameLogicHandler.player2Move" ng-options="val.text as val.value for val in gameLogicHandler.availableMoves"></select>
+                            </div>
+                            <button class="btn btn-success" ng-click="player2MakeMove()">Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <i class="fa fa-bell fa-fw"></i> Log Panel
+                            </div>
+                            <div class="col-md-3">
+                                <div>Round {{gameLogicHandler.currentRound}}</div>
+                            </div>
+                            <div class="col-md-5">
+                                {{gameLogicHandler.player1Stats.name + ' '+ gameLogicHandler.player1Stats.winnerRounds + ' - '+ gameLogicHandler.player2Stats.winnerRounds + ' ' + gameLogicHandler.player2Stats.name+' '}}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item" ng-repeat="round in gameLogicHandler.rounds">
+                                <i class="fa fa-circle fa-fw" style="color: #3b99d9"></i> {{round.roundResult}}
+                                <span class="pull-right text-muted small">
+                                    <em>{{round.player1Move +' vs '+ round.player2Move}}</em>
+                                </span>
+                            </a>
+                            <!--#f75c31-->
+                            <!--<a href="#" class="list-group-item">
+                                    <i class="fa fa-circle fa-fw" style="color: #3b99d9"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">
+                                        <em>12 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-minus fa-fw" style="color: #f09030"></i> Message Sent
+                                    <span class="pull-right text-muted small">
+                                        <em>27 minutes ago</em>
+                                    </span>
+                                </a>-->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

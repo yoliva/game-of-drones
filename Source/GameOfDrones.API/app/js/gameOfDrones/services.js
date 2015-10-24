@@ -20,6 +20,10 @@
                 return $http.post(url + 'create', match);
             };
 
+            service.evalRound = function (data) {
+                return $http.post(url + 'evalRound',data);
+            };
+
         return service;
     }
     ]);

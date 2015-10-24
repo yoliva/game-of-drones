@@ -171,12 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\js\app.js" />
-    <Content Include="app\js\gameOfDrones - Copy\configurationController.js" />
-    <Content Include="app\js\gameOfDrones - Copy\directives.js" />
-    <Content Include="app\js\gameOfDrones - Copy\filters.js" />
-    <Content Include="app\js\gameOfDrones - Copy\services.js" />
-    <Content Include="app\js\gameOfDrones - Copy\startGameController.js" />
-    <Content Include="app\js\gameOfDrones - Copy\statsController.js" />
     <Content Include="app\js\gameOfDrones\gameController.js" />
     <Content Include="app\js\gameOfDrones\configurationController.js" />
     <Content Include="app\js\gameOfDrones\directives.js" />
