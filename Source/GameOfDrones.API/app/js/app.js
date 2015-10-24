@@ -4,8 +4,9 @@
             templateUrl: '/app/partials/gameOfDrones/start.html',
             controller: 'StartGameController'
         });
-        $routeProvider.when('/finish', {
+        $routeProvider.when('/finish/:id', {
             templateUrl: '/app/partials/gameOfDrones/finish.html',
+            controller: 'EndGameController'
         });
         $routeProvider.when('/game/:id', {
             templateUrl: '/app/partials/gameOfDrones/game.html',
