@@ -48,7 +48,6 @@
                         $scope.statsInfo = [];
                         $scope.statsInfo.push(data.player1);
                         $scope.statsInfo.push(data.player2);
-                    console.log($scope.statsInfo);
                 });
             }
         }

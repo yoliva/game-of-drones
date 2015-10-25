@@ -70,7 +70,6 @@
             }
 
             $scope.player2MakeMove = function() {
-                console.log();
                 if ($scope.gameLogicHandler.player2Move == '' || $scope.gameLogicHandler.player2Move == undefined) {
                     swal("Info!", "You must choose a valid move from the list.", "info");
                     return;
