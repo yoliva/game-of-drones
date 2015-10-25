@@ -65,12 +65,18 @@ angular.module('app')
 
 angular.module('app')
     .factory('playerDataService', [
-        '$http', 'config', function ($http, config, $q) {
+        '$http', 'config', function($http, config, $q) {
 
             var eventApiUrl = config.apiUrl;
-            var endPoint = "rules/";
+            var endPoint = "players/";
             var url = eventApiUrl + endPoint;
 
             var service = {};
+
+            service.getStats = function(name) {
+                return $http.get(url + 'stats/' + name);
+            };
+
+            return service;
         }
     ]);
