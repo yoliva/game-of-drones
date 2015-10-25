@@ -24,17 +24,20 @@ namespace GameOfDrones.Domain.Repositories
         Match GetMatchById(int id);
         bool AddMatch(Match match);
         IQueryable<Match> GetAllMatches();
-        RoundResult EvalRound(int ruleId, string player1Move, string player2Move); 
+        RoundResult EvalRound(int ruleId, string player1Move, string player2Move);
+
 
         //Rules
         Rule GetCurrentRule();
         IQueryable<Rule> GetAllRules();
         Rule GetRuleById(int ruleId);
         void AddRule(Rule rule);
+        bool ValidateRule(int ruleId);
+        ICollection<string> GetValidMoves(int ruleId);
 
 
         //Db Save Changes
         SaveChangesResponse SaveChanges();
-        ICollection<string> GetValidMoves(int ruleId);
+
     }
 }

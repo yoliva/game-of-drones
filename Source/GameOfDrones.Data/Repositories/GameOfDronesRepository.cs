@@ -134,6 +134,21 @@ namespace GameOfDrones.Data.Repositories
         {
             return _ctx.Rules.Find(ruleId);
         }
+
+        public bool ValidateRule(int ruleId)
+        {
+            var rule = GetRuleById(ruleId);
+            try
+            {
+                new XmlDocument().LoadXml(rule.RuleDefinition);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public ICollection<string> GetValidMoves(int ruleId)
         {
             var rule = GetRuleById(ruleId);
