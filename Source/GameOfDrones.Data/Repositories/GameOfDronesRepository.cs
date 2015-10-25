@@ -113,12 +113,12 @@ namespace GameOfDrones.Data.Repositories
             foreach (XmlNode child in doc.FirstChild)
             {
                 if (child.Name == player1Move && child.Attributes["kills"].Value == player2Move)
-                    return RoundResult.Player1Wins;
+                    return RoundResult.Player1Won;
 
                 if (child.Name == player2Move && child.Attributes["kills"].Value == player1Move)
-                    return RoundResult.Player2Wins;
+                    return RoundResult.Player2Won;
             }
-            return RoundResult.Draw;
+            return RoundResult.Tie;
         }
 
         //Rules

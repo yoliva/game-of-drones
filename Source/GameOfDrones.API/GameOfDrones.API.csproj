@@ -161,6 +161,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Extensors.cs" />
     <Compile Include="Models\CreateMatchViewModel.cs" />
     <Compile Include="Models\EvalRoundViewModel.cs" />
     <Compile Include="Models\MatchResultStats.cs" />

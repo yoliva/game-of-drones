@@ -8,8 +8,8 @@ namespace GameOfDrones.Domain.Enums
 {
     public enum RoundResult
     {
-        Player1Wins,
-        Player2Wins,
-        Draw
+        Player1Won,
+        Player2Won,
+        Tie
     }
 }

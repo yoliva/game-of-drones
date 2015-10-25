@@ -52,9 +52,9 @@ namespace GameOfDrones.API.Controllers
                 else
                     loses++;
 
-                wonRounds += playerStat.WinnerRounds;
-                tiedRounds += playerStat.DrawRounds;
-                loseRounds += playerStat.LoserRounds;
+                wonRounds += playerStat.WonRounds;
+                tiedRounds += playerStat.TiedRounds;
+                loseRounds += playerStat.LostRounds;
             }
             return Ok(new
             {
@@ -88,9 +88,9 @@ namespace GameOfDrones.API.Controllers
             player1Details.roundsTied = 0;
             foreach (var playerStat in playerStatsFaceToFace)
             {
-                player1Details.roundsWon += playerStat.WinnerRounds;
-                player1Details.roundsLost += playerStat.LoserRounds;
-                player1Details.roundsTied += playerStat.DrawRounds;
+                player1Details.roundsWon += playerStat.WonRounds;
+                player1Details.roundsLost += playerStat.LostRounds;
+                player1Details.roundsTied += playerStat.TiedRounds;
             }
             int totalRounds = player1Details.roundsWon + player1Details.roundsTied + player1Details.roundsLost;
 

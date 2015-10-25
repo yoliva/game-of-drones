@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using GameOfDrones.API.Helpers;
 using GameOfDrones.API.Models;
 using GameOfDrones.Domain.Entities;
 using GameOfDrones.Domain.Enums;
@@ -69,10 +70,10 @@ namespace GameOfDrones.API.Controllers
             {
                 var s = match.PlayersStatses.First(x => x.Player.Name == item.PlayerName);
                 s.Update(
-                    item.WinnerRounds,
-                    item.LoserRounds,
-                    item.DrawRounds,
-                    item.WinnerRounds == 3 ? MatchResult.Winner : MatchResult.Loser);
+                    item.WonRounds,
+                    item.LostRounds,
+                    item.TiedRounds,
+                    item.WonRounds == 3 ? MatchResult.Winner : MatchResult.Loser);
             }
 
             match.Winner = match.PlayersStatses.First(x => x.MatchResult == MatchResult.Winner).Player;
@@ -124,7 +125,8 @@ namespace GameOfDrones.API.Controllers
             var result = _gameOfDronesRepository.EvalRound(data.RuleId, data.Player1Move, data.Player2Move).ToString();
             return Ok(new
             {
-                result
+                result,
+                roundText = result.SplitCamelCase()
             });
         }
     }
