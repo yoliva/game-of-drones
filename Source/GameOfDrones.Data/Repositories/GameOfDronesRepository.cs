@@ -24,13 +24,13 @@ namespace GameOfDrones.Data.Repositories
         public Player GetPlayerById(int id)
         {
             return _ctx.Players.
-                       Include(x => x.PlayerStatses.Select(ps => ps.Match)).
-                       FirstOrDefault(p => p.Id == id);
+                Include(x => x.PlayerStatses.Select(ps => ps.Match.Winner)).
+                FirstOrDefault(p => p.Id == id);
         }
         public Player GetPlayerByName(string name)
         {
             return _ctx.Players.
-                Include(x => x.PlayerStatses.Select(ps => ps.Match)).
+                Include(x => x.PlayerStatses.Select(ps => ps.Match.Winner)).
                 FirstOrDefault(x => x.Name == name);
         }
         public bool AddPlayer(Player player)
