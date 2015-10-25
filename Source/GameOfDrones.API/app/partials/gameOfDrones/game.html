@@ -8,7 +8,9 @@
                             <i class="fa fa-trophy fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">{{gameLogicHandler.player1Stats.name + ' (W-L)'+ + ' vs ' + gameLogicHandler.player2Stats.name+' (W-L)'}}</div>
+                            <div class="huge">
+                                {{"{0}({1}) vs {2}({3})" | stringFormat:[gameLogicHandler.player1Stats.name,gameLogicHandler.player1Stats.previousPerfomance,gameLogicHandler.player2Stats.name,gameLogicHandler.player2Stats.previousPerfomance]}}
+                            </div>
                             <div> some text</div>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 ﻿angular.module('gameOfDrones').
     controller('GameController', [
-        '$scope', '$routeParams', '$location', 'matchDataService', function ($scope, $routeParams, $location, matchDataService) {
+        '$scope', '$routeParams', '$location', 'matchDataService', 'playerDataService', function($scope, $routeParams, $location, matchDataService, playerDataService) {
 
             var id = $routeParams.id;
 
@@ -42,9 +42,18 @@
                     });
 
                     $scope.gameLogicHandler.playerOnTurn = $scope.gameLogicHandler.player1Stats.name;
+
+                    playerDataService.getStats($scope.gameLogicHandler.player1Stats.name)
+                        .success(function(data) {
+                            $scope.gameLogicHandler.player1Stats.previousPerfomance = data.wins + '-' +data.loses;
+                        });
+                    playerDataService.getStats($scope.gameLogicHandler.player2Stats.name)
+                        .success(function(data) {
+                            $scope.gameLogicHandler.player2Stats.previousPerfomance = data.wins + '-' + data.loses;
+                        });
                 });
 
-            $scope.isPlayer1Turn = function () {
+            $scope.isPlayer1Turn = function() {
                 return $scope.gameLogicHandler.player1Stats.name == $scope.gameLogicHandler.playerOnTurn;
             };
 
@@ -52,7 +61,7 @@
                 return $scope.gameLogicHandler.player2Stats.name == $scope.gameLogicHandler.playerOnTurn;
             };
 
-            $scope.player1MakeMove = function () {
+            $scope.player1MakeMove = function() {
                 if ($scope.gameLogicHandler.player1Move == '' || $scope.gameLogicHandler.player2Move == undefined) {
                     swal("Info!", "You must choose a valid move from the list.", "info");
                     return;
@@ -96,9 +105,8 @@
 
                         if (checkEndGameCondition()) {
                             //push data if we have a winner
-                            putMatchStats();                           
-                        }
-                        else {
+                            putMatchStats();
+                        } else {
 
                             //store round and start new round
                             $scope.gameLogicHandler.rounds.push({
