@@ -31,6 +31,7 @@ namespace GameOfDrones.Data.Repositories
         {
             return _ctx.Players.
                 Include(x => x.PlayerStatses.Select(ps => ps.Match.Winner)).
+                Include(x => x.PlayerStatses.Select(ps => ps.Match.PlayersStatses.Select(mps=>mps.Player))).
                 FirstOrDefault(x => x.Name == name);
         }
         public bool AddPlayer(Player player)

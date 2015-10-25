@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
 using System.Web.Http;
 using GameOfDrones.Domain.Entities;
 using GameOfDrones.Domain.Enums;
@@ -63,6 +65,59 @@ namespace GameOfDrones.API.Controllers
                 wonRounds,
                 tiedRounds,
                 loseRounds
+            });
+        }
+
+        [Route("statsComparisson/{player1Name}/{player2Name}")]
+        public IHttpActionResult GetStatsComparisson(string player1Name, string player2Name)
+        {
+
+            var player1 = _gameOfDronesRepository.GetPlayerByName(player1Name);
+            var player2 = _gameOfDronesRepository.GetPlayerByName(player2Name);
+
+
+            var playerStatsFaceToFace =
+                player1.PlayerStatses.Where(
+                    x =>
+                        x.MatchResult != MatchResult.Invalid &&
+                        x.Match.PlayersStatses.Any(ps => ps.Player.Name == player2.Name)).ToArray();
+
+            dynamic player1Details = new ExpandoObject();
+            player1Details.roundsWon = 0;
+            player1Details.roundsLost = 0;
+            player1Details.roundsTied = 0;
+            foreach (var playerStat in playerStatsFaceToFace)
+            {
+                player1Details.roundsWon += playerStat.WinnerRounds;
+                player1Details.roundsLost += playerStat.LoserRounds;
+                player1Details.roundsTied += playerStat.DrawRounds;
+            }
+            int totalRounds = player1Details.roundsWon + player1Details.roundsTied + player1Details.roundsLost;
+
+            var totalMatchs = playerStatsFaceToFace.Count();
+            var matchesWonByPlayer1 = playerStatsFaceToFace.Count(ps => ps.MatchResult == MatchResult.Winner);
+            return Ok(new
+            {
+                player1 = new
+                {
+                    name = player1.Name,
+                    played = totalMatchs,
+                    won = matchesWonByPlayer1,
+                    lost = totalMatchs - matchesWonByPlayer1,
+                    player1Details.roundsWon,
+                    player1Details.roundsTied,
+                    player1Details.roundsLost,
+                },
+                player2 = new
+                {
+                    name = player2.Name,
+                    played = totalMatchs,
+                    won = totalMatchs - matchesWonByPlayer1,
+                    lost = matchesWonByPlayer1,
+                    roundsWon = player1Details.roundsLost,
+                    player1Details.roundsTied,
+                    roundsLost = player1Details.roundsWon
+                }
             });
         }
     }

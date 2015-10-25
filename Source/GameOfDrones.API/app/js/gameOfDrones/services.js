@@ -77,8 +77,12 @@ angular.module('app')
                 return $http.get(url + 'stats/' + name);
             };
 
-            service.getAll = function () {
+            service.getAll = function() {
                 return $http.get(url + 'allPlayers');
+            };
+
+            service.getComparissonStats = function(player1Name,player2Name) {
+                return $http.get(url+'statsComparisson/'+player1Name+'/'+player2Name);
             };
 
             return service;

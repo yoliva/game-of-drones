@@ -71,7 +71,71 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="generalStats">
+                            <div class="row" style="padding-top: 30px">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Player 1:</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" ng-model="player1Stats.name" ng-options="val.value as val.text for val in availablePlayers"></select>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Player 2:</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" ng-model="player2Stats.name" ng-options="val.value as val.text for val in availablePlayers"></select>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-success" ng-click="faceToFaceComparisson()"><i class="fa fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="row">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Face to Face Comparisson
+                                        </div>
+                                        <!-- /.panel-heading -->
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Played</th>
+                                                            <th>Won</th>
+                                                            <th>Lost</th>
+                                                            <th>Rounds Won</th>
+                                                            <th>Rounds Lost</th>
+                                                            <th>Rounds Tied</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="info in statsInfo">
+                                                            <td>{{info.name}}</td>
+                                                            <td>{{info.played}}</td>
+                                                            <td>{{info.won}}</td>
+                                                            <td>{{info.lost}}</td>
+                                                            <td>{{info.roundsWon}}</td>
+                                                            <td>{{info.roundsLost}}</td>
+                                                            <td>{{info.roundsTied}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- /.table-responsive -->
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>
+                                </div>
 
+                            </div>
                         </div>
                         </div>
                     </div> 
