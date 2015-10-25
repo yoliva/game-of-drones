@@ -53,7 +53,7 @@
                                 <div>Round {{gameLogicHandler.currentRound}}</div>
                             </div>
                             <div class="col-md-5">
-                                {{gameLogicHandler.player1Stats.name | uppercase}} {{gameLogicHandler.player1Stats.winnerRounds + ' - '+ gameLogicHandler.player2Stats.winnerRounds}} {{gameLogicHandler.player2Stats.name | uppercase}}
+                                {{gameLogicHandler.player1Stats.name | uppercase}} {{gameLogicHandler.player1Stats.wonRounds + ' - '+ gameLogicHandler.player2Stats.wonRounds}} {{gameLogicHandler.player2Stats.name | uppercase}}
                             </div>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
                         <div class="list-group">
                             <a href="#" class="list-group-item" ng-repeat="round in gameLogicHandler.rounds">
                                 <!--<i class="fa fa-circle fa-fw" style="color: #3b99d9"></i>--> <!--{{round.roundResult}}-->
-                                <i class="fa fa-fw" ng-class="{'fa-circle': round.roundResult != 'Draw', 'fa-minus': round.roundResult == 'Draw'}"
-                                   ng-style="{ 'color' :  (round.roundResult == 'Draw')?'#f09030':((round.roundResult == 'Player1Wins')?'#3b99d9':'#f75c31')}"></i> {{round.roundResult}}
+                                <i class="fa fa-fw" ng-class="{'fa-circle': round.roundResult != 'Tie', 'fa-minus': round.roundResult == 'Tie'}"
+                                   ng-style="{ 'color' :  (round.roundResult == 'Tie')?'#f09030':((round.roundResult == 'Player 1 Won')?'#3b99d9':'#f75c31')}"></i> {{round.roundResult}}
                                 <span class="pull-right text-muted small">
                                     <em>{{round.player1Move +' vs '+ round.player2Move}}</em>
                                 </span>

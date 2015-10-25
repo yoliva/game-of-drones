@@ -24,15 +24,15 @@
 
                     $scope.gameLogicHandler.player1Stats = {
                         name: data.playersStatses[0].player.name,
-                        winnerRounds: 0,
-                        loserRounds: 0,
-                        drawRounds: 0,
+                        wonRounds: 0,
+                        lostRounds: 0,
+                        tiedRounds: 0,
                     };
                     $scope.gameLogicHandler.player2Stats = {
                         name: data.playersStatses[1].player.name,
-                        winnerRounds: 0,
-                        loserRounds: 0,
-                        drawRounds: 0
+                        wonRounds: 0,
+                        lostRounds: 0,
+                        tiedRounds: 0
                     };
                     $.each(data.availableMoves, function(index, item) {
                         $scope.gameLogicHandler.availableMoves.push({
@@ -86,17 +86,17 @@
 
                         //update player stats for this round
                         switch (data.result) {
-                        case 'Player1Wins':
-                            $scope.gameLogicHandler.player1Stats.winnerRounds++;
-                            $scope.gameLogicHandler.player2Stats.loserRounds++;
+                        case 'Player1Won':
+                            $scope.gameLogicHandler.player1Stats.wonRounds++;
+                            $scope.gameLogicHandler.player2Stats.lostRounds++;
                             break;
-                        case 'Player2Wins':
-                            $scope.gameLogicHandler.player1Stats.loserRounds++;
-                            $scope.gameLogicHandler.player2Stats.winnerRounds++;
+                        case 'Player2Won':
+                            $scope.gameLogicHandler.player1Stats.lostRounds++;
+                            $scope.gameLogicHandler.player2Stats.wonRounds++;
                             break;
-                        case 'Draw':
-                            $scope.gameLogicHandler.player1Stats.drawRounds++;
-                            $scope.gameLogicHandler.player2Stats.drawRounds++;
+                        case 'Tie':
+                            $scope.gameLogicHandler.player1Stats.tiedRounds++;
+                            $scope.gameLogicHandler.player2Stats.tiedRounds++;
                             break;
                         }
 
@@ -111,7 +111,7 @@
                             $scope.gameLogicHandler.rounds.push({
                                 player1Move: $scope.gameLogicHandler.player1Move,
                                 player2Move: $scope.gameLogicHandler.player2Move,
-                                roundResult: data.result
+                                roundResult: data.roundText
                             });
 
                             //restart round settings
@@ -134,15 +134,15 @@
                     playersStats: [
                         {
                             playerName: $scope.gameLogicHandler.player1Stats.name,
-                            winnerRounds: $scope.gameLogicHandler.player1Stats.winnerRounds,
-                            loserRounds: $scope.gameLogicHandler.player1Stats.loserRounds,
-                            drawRounds: $scope.gameLogicHandler.player1Stats.drawRounds
+                            wonRounds: $scope.gameLogicHandler.player1Stats.wonRounds,
+                            lostRounds: $scope.gameLogicHandler.player1Stats.lostRounds,
+                            tiedRounds: $scope.gameLogicHandler.player1Stats.tiedRounds
                         },
                         {
                             playerName: $scope.gameLogicHandler.player2Stats.name,
-                            winnerRounds: $scope.gameLogicHandler.player2Stats.winnerRounds,
-                            loserRounds: $scope.gameLogicHandler.player2Stats.loserRounds,
-                            drawRounds: $scope.gameLogicHandler.player2Stats.drawRounds
+                            wonRounds: $scope.gameLogicHandler.player2Stats.wonRounds,
+                            lostRounds: $scope.gameLogicHandler.player2Stats.lostRounds,
+                            tiedRounds: $scope.gameLogicHandler.player2Stats.tiedRounds
                         }
                     ]
                 };
@@ -154,7 +154,7 @@
             }
 
             function checkEndGameCondition() {
-                return $scope.gameLogicHandler.player1Stats.winnerRounds == 3 || $scope.gameLogicHandler.player2Stats.winnerRounds == 3;
+                return $scope.gameLogicHandler.player1Stats.wonRounds == 3 || $scope.gameLogicHandler.player2Stats.wonRounds == 3;
             }
         }
     ]);
