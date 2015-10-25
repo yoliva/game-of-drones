@@ -1,4 +1,4 @@
-﻿angular.module('app', ['ngRoute', 'gameOfDrones'])
+﻿angular.module('app', ['ngRoute', 'gameOfDrones', 'stringFormatterModule'])
     .config(function($routeProvider) {
         $routeProvider.when('/start', {
             templateUrl: '/app/partials/gameOfDrones/start.html',
