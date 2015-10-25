@@ -43,7 +43,7 @@
                     return;
                 }
 
-                playerDataService.getComparissonStats($scope.player1Stats.name, $scope.player2Stats.name)
+                playerDataService.getComparisonStats($scope.player1Stats.name, $scope.player2Stats.name)
                     .success(function(data) {
                         $scope.statsInfo = [];
                         $scope.statsInfo.push(data.player1);

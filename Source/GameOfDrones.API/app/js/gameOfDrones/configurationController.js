@@ -2,13 +2,14 @@
     controller('ConfigurationController', [
         '$scope', 'ruleDataService', function($scope, ruleDataService) {
 
-            $scope.currentRule = -1;
+            $scope.currentRule = {};
+            $scope.rules = [];
             $scope.availableRules = [];
             $scope.newRule = {};
 
             ruleDataService.getAll()
                 .success(function(data) {
-
+                    $scope.rules = data;
                     $.each(data, function(index, item) {
                         $scope.availableRules.push({
                             value: item.id,
@@ -19,8 +20,11 @@
                 });
 
             $scope.setCurrentRule = function() {
-                ruleDataService.updateCurrent($scope.currentRule).success(function(data) {
-                    swal("Success!", data.name + ' is the current rule now.', "success");
+                ruleDataService.updateCurrent($scope.currentRule.id).success(function (data) {
+                    if (data.isValid)
+                        swal("Success!", data.rule.name + ' is the current rule now.', "success");
+                    else 
+                        swal("Error!", data.rule.name + ' has an invalid rule definition.', "error");
                 });
             };
 
@@ -42,5 +46,9 @@
                         $scope.newRule.name = '';
                     });
             };
+
+            $scope.displayRuleDefinition = function () {
+                $scope.currentRule.definition = $scope.rules.filter(function(item) { return item.id == $scope.currentRule.id; })[0].ruleDefinition;
+            }
         }
     ]);
