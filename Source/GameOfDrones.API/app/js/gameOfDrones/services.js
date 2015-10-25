@@ -77,6 +77,10 @@ angular.module('app')
                 return $http.get(url + 'stats/' + name);
             };
 
+            service.getAll = function () {
+                return $http.get(url + 'allPlayers');
+            };
+
             return service;
         }
     ]);
