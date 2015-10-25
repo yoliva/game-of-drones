@@ -192,6 +192,10 @@
     <Content Include="Content\images\events.png" />
     <Content Include="Content\images\image.png" />
     <Content Include="Content\sb-admin-2.css" />
+    <Content Include="Content\select.css" />
+    <Content Include="Content\select.min.css" />
+    <Content Include="Content\select2.css" />
+    <Content Include="Content\select2.png" />
     <Content Include="Content\signin.css" />
     <Content Include="Content\sweet-alert.css" />
     <Content Include="favicon.ico" />
@@ -245,8 +249,8 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
-    <Content Include="Scripts\extra-components\angular-select2.js" />
-    <Content Include="Scripts\extra-components\angular-select2.min.js" />
+    <Content Include="Scripts\extra-components\select.js" />
+    <Content Include="Scripts\extra-components\select.min.js" />
     <Content Include="Scripts\extra-components\stringFormatterModule.js" />
     <Content Include="Scripts\extra-components\sweet-alert.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />

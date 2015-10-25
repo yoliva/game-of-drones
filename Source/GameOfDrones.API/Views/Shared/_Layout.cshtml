@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+            @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/select.css" rel="stylesheet" />
     <link href="~/Content/sweet-alert.css" rel="stylesheet" />
     <link href="~/Content/signin.css" rel="stylesheet" />
     @RenderSection("specific_styles", required: false)
@@ -18,7 +19,7 @@
 
     <script src="~/Scripts/angular.js"></script>
     <script src="~/Scripts/angular-route.js"></script>
-    <script src="~/Scripts/extra-components/angular-select2.min.js"></script>
+    <script src="~/Scripts/extra-components/select.min.js"></script>
     <script src="~/Scripts/extra-components/sweet-alert.min.js"></script>
     <script src="~/Scripts/extra-components/stringFormatterModule.js"></script>
     @* app *@
