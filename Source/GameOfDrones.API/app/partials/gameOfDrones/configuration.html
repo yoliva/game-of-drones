@@ -8,7 +8,7 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <!-- Nav tabs -->
-                    <a href="#/home/start" class="btn btn-primary pull-right"><i class="fa fa-reply"></i></a>
+                    <a href="#/home/start" class="btn btn-default pull-right"><i class="fa fa-reply"></i></a>
 
                     <ul class="nav nav-tabs">
                         <li class="active">
@@ -27,13 +27,21 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Select Rule:</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control" ng-model="currentRule" ng-options="val.value as val.text for val in availableRules"></select>
+                                            <select class="form-control" ng-model="currentRule.id" ng-options="val.value as val.text for val in availableRules" ng-change="displayRuleDefinition()"></select>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Definition:</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" ng-model="currentRule.definition" rows="15" ng-disabled="true"></textarea>
                                             <span></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <a class="btn btn-success" ng-click="setCurrentRule()"><i class="fa fa-check"></i></a>
+                                    <!--<a class="btn btn-primary" ng-click="updateRule()"><i class="fa fa-save"></i></a>-->
                                 </div>
                             </div>
                             </div>

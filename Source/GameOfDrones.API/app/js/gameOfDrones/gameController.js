@@ -124,6 +124,10 @@
                     });
             }
 
+            $scope.displayRuleDefinition = function () {
+
+            }
+
             function putMatchStats() {
                 var matchData = {
                     matchId: id,

@@ -30,12 +30,22 @@ namespace GameOfDrones.API.Controllers
             if (rule == null)
                 return NotFound();
 
-            _gameOfDronesRepository.GetCurrentRule().IsCurrent = false;
-            rule.IsCurrent = true;
+            var isValid = _gameOfDronesRepository.ValidateRule(ruleId);
 
-            _gameOfDronesRepository.SaveChanges();
+            if (isValid)
+            {
+                _gameOfDronesRepository.GetCurrentRule().IsCurrent = false;
+                rule.IsCurrent = true;
 
-            return Ok(rule);
+                _gameOfDronesRepository.SaveChanges();
+            }
+
+
+            return Ok(new
+            {
+                rule,
+                isValid
+            });
         }
         
         [Route("GetCurrent")]
