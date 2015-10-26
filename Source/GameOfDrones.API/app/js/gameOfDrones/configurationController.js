@@ -40,7 +40,7 @@
                             value: data.id,
                             text: data.name
                         });
-
+                    $scope.rules.push(data);
                         //reset form inputs
                         $scope.newRule.ruleDefinition = '';
                         $scope.newRule.name = '';
@@ -48,7 +48,7 @@
             };
 
             $scope.displayRuleDefinition = function () {
-                $scope.currentRule.definition = $scope.rules.filter(function(item) { return item.id == $scope.currentRule.id; })[0].ruleDefinition;
+                $scope.currentRule.definition = $scope.rules.filter(function (item) { return item.id == $scope.currentRule.id; })[0].ruleDefinition;
             }
         }
     ]);
