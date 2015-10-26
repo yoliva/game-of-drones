@@ -116,7 +116,8 @@ namespace GameOfDrones.API.Controllers
                 AvailableMoves = _gameOfDronesRepository.GetValidMoves(match.RuleId),
                 match.PlayersStatses,
                 match.Winner,
-                match.RuleId
+                match.RuleId,
+                ruleName = match.Rule.Name
             });
         }
         [Route("evalRound")]

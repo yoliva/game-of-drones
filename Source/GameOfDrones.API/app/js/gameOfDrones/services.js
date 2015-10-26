@@ -59,6 +59,10 @@ angular.module('app')
                 return $http.post(url + 'create/',data);
             };
 
+            service.getCurrent = function () {
+                return $http.get(url + 'getCurrent/');
+            };
+
             return service;
         }
     ]);

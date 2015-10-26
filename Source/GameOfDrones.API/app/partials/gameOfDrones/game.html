@@ -11,7 +11,7 @@
                             <div class="huge">
                                 {{"{0}({1}) vs {2}({3})" | stringFormat:[gameLogicHandler.player1Stats.name,gameLogicHandler.player1Stats.previousPerfomance,gameLogicHandler.player2Stats.name,gameLogicHandler.player2Stats.previousPerfomance]}}
                             </div>
-                            <div> some text</div>
+                            <div> {{"Rule for this game: {0}"| stringFormat:[gameLogicHandler.ruleName]}}</div>
                         </div>
                     </div>
                 </div>
@@ -60,14 +60,14 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item" ng-repeat="round in gameLogicHandler.rounds">
+                            <a class="list-group-item" ng-repeat="round in gameLogicHandler.rounds">
                                 <!--<i class="fa fa-circle fa-fw" style="color: #3b99d9"></i>--> <!--{{round.roundResult}}-->
                                 <i class="fa fa-fw" ng-class="{'fa-circle': round.roundResult != 'Tie', 'fa-minus': round.roundResult == 'Tie'}"
                                    ng-style="{ 'color' :  (round.roundResult == 'Tie')?'#f09030':((round.roundResult == 'Player 1 Won')?'#3b99d9':'#f75c31')}"></i> {{round.roundResult}}
                                 <span class="pull-right text-muted small">
                                     <em>{{round.player1Move +' vs '+ round.player2Move}}</em>
                                 </span>
-                            </a>
+                            </a>                           
                         </div>
                         <!-- /.panel-body -->
                     </div>

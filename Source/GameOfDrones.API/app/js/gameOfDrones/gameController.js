@@ -14,6 +14,7 @@
                 availableMoves: [],
                 playedRounds: [],
                 ruleId: '',
+                ruleName: '',
                 rounds: []
             }
             matchDataService.getById(id)
@@ -21,6 +22,7 @@
 
                     //initialize player initial info
                     $scope.gameLogicHandler.ruleId = data.ruleId;
+                $scope.gameLogicHandler.ruleName = data.ruleName;
 
                     $scope.gameLogicHandler.player1Stats = {
                         name: data.playersStatses[0].player.name,
@@ -62,7 +64,7 @@
             };
 
             $scope.player1MakeMove = function() {
-                if ($scope.gameLogicHandler.player1Move == '' || $scope.gameLogicHandler.player2Move == undefined) {
+                if ($scope.gameLogicHandler.player1Move == '' || $scope.gameLogicHandler.player1Move == undefined) {
                     swal("Info!", "You must choose a valid move from the list.", "info");
                     return;
                 }
