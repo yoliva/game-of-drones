@@ -164,7 +164,6 @@
     <Compile Include="Helpers\Extensors.cs" />
     <Compile Include="Models\CreateMatchViewModel.cs" />
     <Compile Include="Models\EvalRoundViewModel.cs" />
-    <Compile Include="Models\MatchResultStats.cs" />
     <Compile Include="Models\PlayerStatsViewModel.cs" />
     <Compile Include="Models\RuleViewModel.cs" />
     <Compile Include="Models\UpdateMatchStatsViewModel.cs" />

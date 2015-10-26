@@ -22,6 +22,9 @@ namespace GameOfDrones.API.Controllers
         [Route("create")]
         public IHttpActionResult PostMatch([FromBody]CreateMatchViewModel data)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
             if (data.P1Name == data.P2Name)
                 return BadRequest("Two different players are required for this game");
 
@@ -119,7 +122,10 @@ namespace GameOfDrones.API.Controllers
         [Route("evalRound")]
         public IHttpActionResult PostEvalRound([FromBody]EvalRoundViewModel data)
         {
-            //if according to the match rules move(A) kills move(B) and move(B) kills move(A), is returned the first in the xml definition
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            //if according to the match rules, move(A) kills move(B) and move(B) kills move(A), the first one in the xml definitionis returned.
             if(!ModelState.IsValid)
                 return BadRequest();
             var result = _gameOfDronesRepository.EvalRound(data.RuleId, data.Player1Move, data.Player2Move).ToString();

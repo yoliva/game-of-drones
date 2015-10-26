@@ -32,7 +32,7 @@
                 });
             }
 
-            $scope.faceToFaceComparisson = function () {
+            $scope.faceToFaceComparison = function () {
 
                 if ($scope.player1Stats.name == undefined || $scope.player1Stats.name == '' || $scope.player2Stats.name == undefined || $scope.player2Stats.name == '') {
                     swal("Error!", "You must two players to compare.", "error");

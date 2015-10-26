@@ -68,8 +68,8 @@ namespace GameOfDrones.API.Controllers
             });
         }
 
-        [Route("statsComparisson/{player1Name}/{player2Name}")]
-        public IHttpActionResult GetStatsComparisson(string player1Name, string player2Name)
+        [Route("statsComparison/{player1Name}/{player2Name}")]
+        public IHttpActionResult GetStatsComparison(string player1Name, string player2Name)
         {
 
             var player1 = _gameOfDronesRepository.GetPlayerByName(player1Name);

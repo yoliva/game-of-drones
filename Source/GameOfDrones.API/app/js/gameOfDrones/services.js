@@ -82,7 +82,7 @@ angular.module('app')
             };
 
             service.getComparisonStats = function(player1Name,player2Name) {
-                return $http.get(url+'statsComparisson/'+player1Name+'/'+player2Name);
+                return $http.get(url+'statsComparison/'+player1Name+'/'+player2Name);
             };
 
             return service;
